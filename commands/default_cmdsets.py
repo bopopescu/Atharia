@@ -235,7 +235,7 @@ class AccountCmdSet(cmdset_account.AccountCmdSet):
         self.add(staff_commands.CmdViewLog())
         self.add(staff_commands.CmdSetLanguages())
         self.add(staff_commands.CmdGMNotes())
-        self.add(staff_commands.CmdJournalAdminForDummies())
+        #self.add(staff_commands.CmdJournalAdminForDummies())
         self.add(staff_commands.CmdTransferKeys())
         self.add(staff_commands.CmdAdminTitles())
         self.add(staff_commands.CmdAdminWrit())

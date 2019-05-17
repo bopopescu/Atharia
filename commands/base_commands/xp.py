@@ -216,7 +216,8 @@ class CmdUseXP(ArxCommand):
             if stype == "stat":
                 caller.adjust_xp(-cost)
                 stats_and_skills.adjust_stat(caller, args)
-                caller.msg("You have increased your %s to %s." % (cost, current + 1))
+                caller.msg("You have increased your %s for a cost of %s xp. " % (args, cost) +
+                           "XP remaining: %s" % caller.db.xp)
                 return
             if stype == "skill":
                 caller.adjust_xp(-cost)
@@ -226,7 +227,8 @@ class CmdUseXP(ArxCommand):
                 spent_list.append(cost)
                 skill_history[args] = spent_list
                 caller.db.skill_history = skill_history
-                caller.msg("You have increased your %s to %s." % (args, current + 1))
+                caller.msg("You have increased your %s for a cost of %s xp. " % (args, cost) +
+                           "XP remaining: %s" % caller.db.xp)
                 if current + 1 == 6:  # legendary rating
                     inform_staff("%s has bought a rank 6 of %s." % (caller, args))
                 return
@@ -242,7 +244,7 @@ class CmdUseXP(ArxCommand):
                 spent_list.append(cost)
                 ability_history[args] = spent_list
                 caller.db.ability_history = ability_history
-                caller.msg("You have increased your %s to %s." % (args, current + 1))
+                caller.msg("You have increased your %s for a cost of %s xp." % (args, cost))
                 return
             if stype == "dom":
                 # charge them influence

@@ -144,7 +144,7 @@ try:
 except Exception as err:
     print("<<ERROR>>: Error encountered in exploration commands: %s" % err)
 try:
-    from world.dominion.plots import plot_commands
+    from world.dominion import plot_commands
 except Exception as err:
     print("<<ERROR>>: Error encountered in plot commands: %s" % err)
 try:
@@ -289,7 +289,6 @@ class MobileCmdSet(CmdSet):
         self.add(fashion_commands.CmdFashionModel())
         self.add(fashion_commands.CmdFashionOutfit())
         self.add(petitions_commands.CmdPetition())
-        self.add(condition_commands.CmdKnacks())
 
 
 class StaffCmdSet(CmdSet):

@@ -14,7 +14,7 @@ from evennia.objects.models import ObjectDB
 from evennia.utils.evtable import EvTable
 
 from world.dominion.models import AssetOwner, Member, AccountTransaction
-from world.dominion.domain.models import Army, Orders
+from world.dominion.models import Army, Orders
 from world.msgs.models import Inform
 from typeclasses.bulletin_board.bboard import BBoard
 from typeclasses.accounts import Account
@@ -129,7 +129,7 @@ class WeeklyEvents(RunDateMixin, Script):
         # awarding votes we counted
         self.award_scene_xp()
         #self.award_vote_xp()
-        self.post_top_rpers()
+        #self.post_top_rpers()
         self.post_top_prestige()
         # dominion stuff
         self.do_dominion_events()
@@ -317,7 +317,7 @@ class WeeklyEvents(RunDateMixin, Script):
         
     # Various 'Beats' -------------------------------------------------
 
-    def process_journals(self, player):
+    #def process_journals(self, player):
         """
         In the journals here, we're processing all the XP gained for
         making journals, comments, or updating relationships.
@@ -359,7 +359,7 @@ class WeeklyEvents(RunDateMixin, Script):
 
     # -----------------------------------------------------------------
 
-    def count_votes(self, player):
+    #def count_votes(self, player):
         """
         Counts the votes for each player. We may log voting patterns later if
         we need to track against abuse, but since voting is stored in each

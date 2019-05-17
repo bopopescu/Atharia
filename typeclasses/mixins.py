@@ -540,11 +540,6 @@ class ModifierMixin(object):
     Allows us to set modifiers in different situations with specific values. We check against a tag in the target,
     and if there's a match we apply the modifier.
     """
-    @lazy_property
-    def mods(self):
-        from world.conditions.modifiers_handlers import ModifierHandler
-        return ModifierHandler(self)
-
     @property
     def modifier_tags(self):
         """Gets list of modifier tags this object has"""
@@ -920,7 +915,7 @@ class MsgMixins(object):
                     origin = from_obj
                     if not from_obj and options.get('is_magic', False):
                         origin = "Magic System"
-                    self.ndb.pose_history.append((str(origin), text))
+                    self.ndb.pose_history.append((origin, text))
                 except AttributeError:
                     pass
         if options.get('box', False):

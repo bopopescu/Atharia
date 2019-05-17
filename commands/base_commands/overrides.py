@@ -700,18 +700,16 @@ class CmdPose(ArxCommand):
         """Hook function"""
         if "history" in self.switches:
             pose_history = self.caller.ndb.pose_history or []
-            topic = ""
             if self.args:
-                topic = " involving '%s'" % self.args
                 args = self.args.lower().strip()
                 pose_history = [ob for ob in pose_history if args in str(ob[0]).lower() or args in str(ob[1]).lower()]
-            if pose_history:
-                msg = "|w[Recent poses%s]|n\n%s" % (topic, "\n".join("|c%s|n: %s" % (ob[0], ob[1].lstrip()) for ob in pose_history))
-            else:
-                msg = "|wNo recent poses found%s.|n" % topic
+            msg = "\n".join("{c%s{n: %s" % (ob[0], ob[1].lstrip()) for ob in pose_history)
+            self.msg("Recent poses received:")
             self.msg(msg)
-        elif not self.args:
-            self.caller.msg("What do you want to do?")
+            return
+        if not self.args:
+            msg = "What do you want to do?"
+            self.caller.msg(msg)
         else:
             self.caller.location.msg_action(self.caller, self.args, options={'is_pose': True})
             self.caller.posecount += 1

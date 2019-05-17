@@ -19,8 +19,7 @@ from server.utils.prettytable import PrettyTable
 from server.utils.exceptions import CommandError
 from commands.base import ArxCommand, ArxPlayerCommand
 from web.character.models import Clue, SearchTag, Revelation, StoryEmit, Flashback, CluePlotInvolvement
-from world.dominion.models import Organization, RPEvent, Propriety, AssetOwner, PrestigeCategory
-from world.dominion.plots.models import Plot, PlotAction
+from world.dominion.models import Organization, RPEvent, Propriety, AssetOwner, Plot, PlotAction, PrestigeCategory
 from typeclasses.characters import Character
 
 PERMISSION_HIERARCHY = [p.lower() for p in settings.PERMISSION_HIERARCHY]
@@ -1828,7 +1827,7 @@ class CmdSetServerConfig(ArxPlayerCommand):
         except (TypeError, ValueError):
             if not quiet:
                 self.msg("Cannot convert to number. Using Default income value.")
-            from world.dominion.domain.models import DEFAULT_GLOBAL_INCOME_MOD
+            from world.dominion.models import DEFAULT_GLOBAL_INCOME_MOD
             return DEFAULT_GLOBAL_INCOME_MOD
 
     def list_config_values(self):

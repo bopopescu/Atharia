@@ -195,13 +195,10 @@ class RosterEntry(SharedMemoryModel):
         return self.accounthistory_set.order_by('-id')[1:]
 
     @property
-    def valid_flashbacks(self):
-        """Gets queryset of flashbacks we own or are allowed access to."""
-        return Flashback.objects.filter(Q(owner=self) | Q(allowed=self)).distinct()
-
-    @property
     def impressions_of_me(self):
-        """Gets queryset of all our current first impressions"""
+        """
+        Gets queryset of all our current first impressions
+        """
         try:
             return self.current_history.received_contacts.all()
         except AttributeError:
@@ -271,8 +268,7 @@ class RosterEntry(SharedMemoryModel):
                 tag: SearchTag object
         """
         from server.utils.arx_utils import qslist_to_string
-        from world.dominion.models import RPEvent
-        from world.dominion.plots.models import PlotUpdate
+        from world.dominion.models import PlotUpdate, RPEvent
         from web.helpdesk.models import KBItem, KBCategory
         dompc = self.player.Dominion
         querysets = []
