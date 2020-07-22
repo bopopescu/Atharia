@@ -70,7 +70,7 @@ class CmdAdmDomain(ArxPlayerCommand):
       desc - description/history of domain
       area - total area of domain
       tax_rate
-      slave_labor_percentage
+      subordinate_labor_percentage
       num_farms - changes the number of farms to value
       num_mines - like farms
       num_mills - like farms
@@ -383,7 +383,7 @@ class CmdAdmDomain(ArxPlayerCommand):
         # to change them
         attr_switches = ("name", "desc", "title", "area", "stored_food", "tax_rate",
                          "num_mines", "num_lumber_yards", "num_mills", "num_housing",
-                         "num_farms", "unassigned_serfs", "slave_labor_percentage",
+                         "num_farms", "unassigned_serfs", "subordinate_labor_percentage",
                          "mining_serfs", "lumber_serfs", "farming_serfs", "mill_serfs",
                          "lawlessness", "amount_plundered", "income_modifier")
         switches = [switch for switch in self.switches if switch in attr_switches]

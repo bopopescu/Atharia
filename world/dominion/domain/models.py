@@ -867,8 +867,8 @@ class Domain(CachedPropertiesMixin, SharedMemoryModel):
     num_farms = models.PositiveSmallIntegerField(default=0, blank=0)
     # workers who are not currently employed in a resource
     unassigned_serfs = models.PositiveIntegerField(default=0, blank=0)
-    # what proportion of our serfs are slaves and will have no money upkeep
-    slave_labor_percentage = models.PositiveSmallIntegerField(default=0, blank=0)
+    # what proportion of our serfs are subordinates and will have no money upkeep
+    subordinate_labor_percentage = models.PositiveSmallIntegerField(default=0, blank=0)
     # workers employed in different buildings
     mining_serfs = models.PositiveSmallIntegerField(default=0, blank=0)
     lumber_serfs = models.PositiveSmallIntegerField(default=0, blank=0)
@@ -995,12 +995,12 @@ class Domain(CachedPropertiesMixin, SharedMemoryModel):
 
     def worker_cost(self, number):
         """
-        Cost of workers, reduced if they are slaves
+        Cost of workers, reduced if they are subordinates
         """
-        if self.slave_labor_percentage > 99:
+        if self.subordinate_labor_percentage > 99:
             return 0
         cost = BASE_WORKER_COST * number
-        cost *= (100 - self.slave_labor_percentage)/100
+        cost *= (100 - self.subordinate_labor_percentage)/100
         if self.ruler and self.ruler.castellan:
             # every point in upkeep skill reduces cost
             reduction = 1.00 + self.get_bonus('upkeep')

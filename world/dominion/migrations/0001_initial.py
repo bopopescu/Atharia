@@ -192,7 +192,7 @@ class Migration(migrations.Migration):
                 ('num_housing', models.PositiveIntegerField(blank=0, default=0)),
                 ('num_farms', models.PositiveSmallIntegerField(blank=0, default=0)),
                 ('unassigned_serfs', models.PositiveIntegerField(blank=0, default=0)),
-                ('slave_labor_percentage', models.PositiveSmallIntegerField(blank=0, default=0)),
+                ('subordinate_labor_percentage', models.PositiveSmallIntegerField(blank=0, default=0)),
                 ('mining_serfs', models.PositiveSmallIntegerField(blank=0, default=0)),
                 ('lumber_serfs', models.PositiveSmallIntegerField(blank=0, default=0)),
                 ('farming_serfs', models.PositiveSmallIntegerField(blank=0, default=0)),

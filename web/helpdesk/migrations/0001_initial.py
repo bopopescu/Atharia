@@ -106,7 +106,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(max_length=100, verbose_name='Name')),
                 ('date', models.DateField(help_text='Date on which this e-mail address was added', verbose_name='Date', editable=False, blank=True)),
-                ('email_address', models.CharField(help_text='Enter a full e-mail address, or portions with wildcards, eg *@domain.com or postmaster@*.', max_length=150, verbose_name='E-Mail Address')),
+                ('email_address', models.CharField(help_text='Enter a full e-mail address, or portions with wildcards, eg *@domain.com or postmain@*.', max_length=150, verbose_name='E-Mail Address')),
                 ('keep_in_mailbox', models.BooleanField(default=False, help_text='Do you want to save emails from this address in the mailbox? If this is unticked, emails from this address will be deleted.', verbose_name='Save Emails in Mailbox?')),
             ],
             options={

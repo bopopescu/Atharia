@@ -1036,7 +1036,7 @@ except:
 class IgnoreEmail(models.Model):
     """
     This model lets us easily ignore e-mails from certain senders when
-    processing IMAP and POP3 mailboxes, eg mails from postmaster or from
+    processing IMAP and POP3 mailboxes, eg mails from postmain or from
     known trouble-makers.
     """
     queues = models.ManyToManyField(
@@ -1063,7 +1063,7 @@ class IgnoreEmail(models.Model):
         _('E-Mail Address'),
         max_length=150,
         help_text=_('Enter a full e-mail address, or portions with '
-            'wildcards, eg *@domain.com or postmaster@*.'),
+            'wildcards, eg *@domain.com or postmain@*.'),
         )
 
     keep_in_mailbox = models.BooleanField(
